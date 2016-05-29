@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blockster.CSharp", "Blockster.CSharp.csproj", "{CA8EFC2E-3E23-B200-6DBE-E903D8018E60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blockster.CSharp.Editor", "Blockster.CSharp.Editor.csproj", "{8558D667-8CFE-9C63-D146-FF56FB0F6EAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA8EFC2E-3E23-B200-6DBE-E903D8018E60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA8EFC2E-3E23-B200-6DBE-E903D8018E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA8EFC2E-3E23-B200-6DBE-E903D8018E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA8EFC2E-3E23-B200-6DBE-E903D8018E60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8558D667-8CFE-9C63-D146-FF56FB0F6EAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8558D667-8CFE-9C63-D146-FF56FB0F6EAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8558D667-8CFE-9C63-D146-FF56FB0F6EAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8558D667-8CFE-9C63-D146-FF56FB0F6EAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
