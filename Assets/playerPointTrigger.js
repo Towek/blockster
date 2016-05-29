@@ -5,6 +5,7 @@ var lvl_difficultyX = 0;
 function Start () {
     map = GameObject.Find("Map");
     Debug.Log("Current lvl: "+lvl_difficultyX);
+    generateRandomPosition(transform.position.x, transform.position.y);
 }
 
 function Update () {
