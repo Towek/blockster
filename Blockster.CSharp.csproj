@@ -70,6 +70,7 @@
     <Compile Include="Assets\2DLightAsset\Scripts\Helpers\interface_touch.cs" />
     <Compile Include="Assets\2DLightAsset\Scripts\Helpers\interface_touch2.cs" />
     <Compile Include="Assets\2DLightAsset\Scripts\rotate.cs" />
+    <Compile Include="Assets\findMissing.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\2DLightAsset\Shaders\Gradient-NoTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
