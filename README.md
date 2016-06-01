@@ -1,4 +1,4 @@
 # blockster
 simple game 
 
-![game screen http://url/to/img.png](http://url/to/img.png)
+![game screen http://i.imgur.com/QmUwoHJ.png](http://i.imgur.com/QmUwoHJ.png)
