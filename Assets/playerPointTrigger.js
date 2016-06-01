@@ -2,6 +2,7 @@
 public static var score : int = 0;
 var map : GameObject;
 var lvl_difficultyX = 0;
+var enemySpawner : enemySpawner;
 function Start () {
     map = GameObject.Find("Map");
     Debug.Log("Current lvl: "+lvl_difficultyX);
@@ -27,6 +28,7 @@ function Update () {
             map.transform.localScale.x--;
             map.transform.localScale.y--;
             lvl_difficultyX++;
+            enemySpawner.randomPosition();
             Debug.Log("Current lvl: "+lvl_difficultyX);
         };
     };
