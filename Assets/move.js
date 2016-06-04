@@ -52,7 +52,7 @@ function Update () {
         if (Input.GetKeyUp ("right")) transform.position.x += movePower;
         //Debug.Log("Block down");
     }else{
-        if (Input.GetKeyUp ("up")) transform.position.y += movePower;
+        if (Input.GetKeyUp ("up")){ transform.position.y += movePower;  animation.Play("moveY");;}
         if (Input.GetKeyUp ("down")) transform.position.y -= movePower;
         if (Input.GetKeyUp ("left")) transform.position.x -= movePower;
         if (Input.GetKeyUp ("right")) transform.position.x += movePower;
