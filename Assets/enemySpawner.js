@@ -1,22 +1,22 @@
 ﻿#pragma strict
 var cloneSpeed : int = 5;
-var spawnSpeed : float = 0.5;
-var timerSeconds : int = 60;
+public var spawnSpeed : float = 0.5;
 var spawnDelay : float = 1;
-var timerHelper : int;
 var obj : GameObject;
-static var enemyMaxSlots : int = 20;
 var clone : Rigidbody2D;
-var enemySpawnIndex = 0;
+var enemySpawnIndex : int = 0;
 var map : GameObject;
 map = GameObject.Find("Map");
 static var spawnPlace = new Array();
 function Start () {
-    timerHelper = timerSeconds;
-    InvokeRepeating("startSpawning", spawnDelay, spawnSpeed);
     randomPosition();
     RandomizeArray(spawnPlace);
 
+    //ALWAYS ON THE END OF START!!!!!!!!
+    while(true){
+        yield WaitForSeconds(spawnSpeed);
+        startSpawning();
+    }
 }
 
 function Update () {
