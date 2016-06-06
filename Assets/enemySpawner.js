@@ -47,11 +47,13 @@ function RandomizeArray(arr : Array){
         var tmp = arr[i];
         arr[i] = arr[r];
         arr[r] = tmp;
+        Debug.Log("Calling enemySpawner.RandomizeArray");
     }
 }
 function randomPosition(){
     for(var j = 0; j <= map.transform.localScale.y-1; j++){
         spawnPlace[j] = j;
+        Debug.Log("Calling enemySpaner.randomPosition");
     };
 }
 
