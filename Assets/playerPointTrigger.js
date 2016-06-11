@@ -1,10 +1,14 @@
 ﻿#pragma strict
 public static var score : int = 0;
 var map : GameObject;
+var cloneRemover : GameObject;
+var cloneRemoverRG2D: Rigidbody2D;
 var lvl_difficultyX = 1;
 var spawner: GameObject;
 function Start () {
     map = GameObject.Find("Map");
+    cloneRemover = GameObject.Find("enemyCloneRemover");
+    cloneRemoverRG2D = cloneRemover.GetComponent.<Rigidbody2D>();
     Debug.Log("Current lvl: "+lvl_difficultyX);
     generateRandomPosition(transform.position.x, transform.position.y);
 }
@@ -30,7 +34,9 @@ function Update () {
                 map.transform.localScale.y--;
                 lvl_difficultyX++;
                 Debug.Log("Current lvl: "+lvl_difficultyX);
-                
+                //var v = new Vector2(cloneRemover.transform.position.x, map.transform.localScale.y);
+                //cloneRemoverRG2D.MovePosition(v);
+                cloneRemover.transform.position.y = map.transform.localScale.y;
 
                 var enemySpawner : enemySpawner = map.GetComponent(typeof(enemySpawner));
                 enemySpawner.spawnSpeed -= 0.005*(score/10);
