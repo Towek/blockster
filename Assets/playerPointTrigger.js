@@ -3,12 +3,16 @@ public static var score : int = 0;
 var map : GameObject;
 var cloneRemover : GameObject;
 var cloneRemoverRG2D: Rigidbody2D;
+var text : GameObject;
+var scoreText : UI.Text;
 var lvl_difficultyX = 1;
 var spawner: GameObject;
 function Start () {
     map = GameObject.Find("Map");
     cloneRemover = GameObject.Find("enemyCloneRemover");
     cloneRemoverRG2D = cloneRemover.GetComponent.<Rigidbody2D>();
+    text = GameObject.Find("scoreText");
+    scoreText = text.GetComponent.<UI.Text>();
     Debug.Log("Current lvl: "+lvl_difficultyX);
     generateRandomPosition(transform.position.x, transform.position.y);
 }
@@ -21,7 +25,7 @@ function Update () {
     var playerPos_y = playerBlock.transform.position.y;
     if(playerPos_x == transform.position.x && playerPos_y == transform.position.y){
         score++;
-        Debug.Log("Score: "+score);
+        scoreText.text = score.ToString();
         generateRandomPosition(transform.position.y, transform.position.y);
         if(score/2 == lvl_difficultyX){
             if(lvl_difficultyX <= 16){
@@ -38,13 +42,15 @@ function Update () {
                 //cloneRemoverRG2D.MovePosition(v);
                 cloneRemover.transform.position.y = map.transform.localScale.y;
 
+
                 var enemySpawner : enemySpawner = map.GetComponent(typeof(enemySpawner));
                 enemySpawner.spawnSpeed -= 0.005*(score/10);
                 enemySpawner.cloneSpeed += 0.1;
                 enemySpawner.spawnPlace = [];
-                //Debug.Log (MaxValue(enemySpawner.spawnPlace));
                 enemySpawner.randomPosition();
                 enemySpawner.RandomizeArray(enemySpawner.spawnPlace);
+            }else{
+                enemySpawner.spawnSpeed -= 0.005*(score/10);
             }
         }
     }
