@@ -15,6 +15,7 @@ function Start () {
     scoreText = text.GetComponent.<UI.Text>();
     Debug.Log("Current lvl: "+lvl_difficultyX);
     generateRandomPosition(transform.position.x, transform.position.y);
+    score = 0;
 }
 
 function Update () {
@@ -44,13 +45,13 @@ function Update () {
 
 
                 var enemySpawner : enemySpawner = map.GetComponent(typeof(enemySpawner));
-                enemySpawner.spawnSpeed -= 0.005*(score/10);
+                enemySpawner.spawnSpeed -= 0.005*(score/5);
                 enemySpawner.cloneSpeed += 0.1;
                 enemySpawner.spawnPlace = [];
                 enemySpawner.randomPosition();
                 enemySpawner.RandomizeArray(enemySpawner.spawnPlace);
             }else{
-                enemySpawner.spawnSpeed -= 0.005*(score/10);
+                enemySpawner.spawnSpeed -= 0.005*(score/5);
             }
         }
     }
