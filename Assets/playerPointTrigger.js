@@ -9,32 +9,37 @@ var textL : GameObject;
 var liveText : UI.Text;
 var lvl_difficultyX = 1;
 var spawner: GameObject;
+var timeAlive : float;
+var maxLevel : int;
 function Start () {
     map = GameObject.Find("Map");
     cloneRemover = GameObject.Find("enemyCloneRemover");
     cloneRemoverRG2D = cloneRemover.GetComponent.<Rigidbody2D>();
     text = GameObject.Find("scoreText");
     scoreText = text.GetComponent.<UI.Text>();
-    textL = GameObject.Find("liveText");
-    liveText = text.GetComponent.<UI.Text>();
+    textL = GameObject.Find("liveTime");
+    liveText = textL.GetComponent.<UI.Text>();
     Debug.Log("Current lvl: "+lvl_difficultyX);
     generateRandomPosition(transform.position.x, transform.position.y);
     score = 0;
+    timeAlive = 0;
+    maxLevel = 16;
 }
 
 function Update () {
     //Debug.Log();
     var playerBlock : GameObject;
-    var timeAlive : float;
+
     playerBlock = GameObject.Find("playerBlock");
     var playerPos_x = playerBlock.transform.position.x;
     var playerPos_y = playerBlock.transform.position.y;
+
     if(playerPos_x == transform.position.x && playerPos_y == transform.position.y){
         score++;
         scoreText.text = score.ToString();
         generateRandomPosition(transform.position.y, transform.position.y);
-        if(score/5 == lvl_difficultyX){
-            if(lvl_difficultyX <= 16){
+        if(score/2 == lvl_difficultyX){
+            if(lvl_difficultyX <= maxLevel){
                 Camera.main.transform.position.x -= 0.5;
                 Camera.main.transform.position.y -= 0.5;
                 Camera.main.orthographicSize -= 0.5;
@@ -44,8 +49,6 @@ function Update () {
                 map.transform.localScale.y--;
                 lvl_difficultyX++;
                 Debug.Log("Current lvl: "+lvl_difficultyX);
-                //var v = new Vector2(cloneRemover.transform.position.x, map.transform.localScale.y);
-                //cloneRemoverRG2D.MovePosition(v);
                 cloneRemover.transform.position.y = map.transform.localScale.y;
 
 
@@ -55,14 +58,12 @@ function Update () {
                 enemySpawner.spawnPlace = [];
                 enemySpawner.randomPosition();
                 enemySpawner.RandomizeArray(enemySpawner.spawnPlace);
-            }else{
-                enemySpawner.spawnSpeed -= 0.005*(score/10);
-                timeAlive += Time.deltaTime;
-                scoreText.text = "Alive for "+timeAlive.ToString();
             }
-        }
+            }
     }
 }
+
+
 
 
 function generateRandomPosition(current_x, current_y){

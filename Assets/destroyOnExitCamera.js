@@ -9,9 +9,8 @@ function Update () {
     
     if(GameObject.Find("enemyClone") != -1){
         clone = GameObject.Find("enemyClone");
-        if(clone.transform.position.x > removeLaser){
+        if(clone.transform.position.x >= removeLaser){
             Destroy(clone);
         }
     }
-
 }
