@@ -62,13 +62,11 @@
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="pseudoSinCos">
-      <HintPath>Assets\2DLightAsset\Scripts\Helpers\pseudoSinCos.dll</HintPath>
+      <HintPath>Assets\2DLightAsset\Helpers\pseudoSinCos.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\2DLightAsset\Scripts\2DLight\DynamicLight.cs" />
-    <Compile Include="Assets\2DLightAsset\Scripts\Helpers\interface_touch.cs" />
-    <Compile Include="Assets\2DLightAsset\Scripts\Helpers\interface_touch2.cs" />
     <Compile Include="Assets\2DLightAsset\Scripts\rotate.cs" />
     <Compile Include="Assets\wiki\FPSDisplay.cs" />
   </ItemGroup>

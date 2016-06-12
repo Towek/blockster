@@ -5,6 +5,8 @@ var cloneRemover : GameObject;
 var cloneRemoverRG2D: Rigidbody2D;
 var text : GameObject;
 var scoreText : UI.Text;
+var textL : GameObject;
+var liveText : UI.Text;
 var lvl_difficultyX = 1;
 var spawner: GameObject;
 function Start () {
@@ -13,6 +15,8 @@ function Start () {
     cloneRemoverRG2D = cloneRemover.GetComponent.<Rigidbody2D>();
     text = GameObject.Find("scoreText");
     scoreText = text.GetComponent.<UI.Text>();
+    textL = GameObject.Find("liveText");
+    liveText = text.GetComponent.<UI.Text>();
     Debug.Log("Current lvl: "+lvl_difficultyX);
     generateRandomPosition(transform.position.x, transform.position.y);
     score = 0;
@@ -21,6 +25,7 @@ function Start () {
 function Update () {
     //Debug.Log();
     var playerBlock : GameObject;
+    var timeAlive : float;
     playerBlock = GameObject.Find("playerBlock");
     var playerPos_x = playerBlock.transform.position.x;
     var playerPos_y = playerBlock.transform.position.y;
@@ -28,7 +33,7 @@ function Update () {
         score++;
         scoreText.text = score.ToString();
         generateRandomPosition(transform.position.y, transform.position.y);
-        if(score/2 == lvl_difficultyX){
+        if(score/5 == lvl_difficultyX){
             if(lvl_difficultyX <= 16){
                 Camera.main.transform.position.x -= 0.5;
                 Camera.main.transform.position.y -= 0.5;
@@ -45,13 +50,15 @@ function Update () {
 
 
                 var enemySpawner : enemySpawner = map.GetComponent(typeof(enemySpawner));
-                enemySpawner.spawnSpeed -= 0.005*(score/5);
+                enemySpawner.spawnSpeed -= 0.005*(score/10);
                 enemySpawner.cloneSpeed += 0.1;
                 enemySpawner.spawnPlace = [];
                 enemySpawner.randomPosition();
                 enemySpawner.RandomizeArray(enemySpawner.spawnPlace);
             }else{
-                enemySpawner.spawnSpeed -= 0.005*(score/5);
+                enemySpawner.spawnSpeed -= 0.005*(score/10);
+                timeAlive += Time.deltaTime;
+                scoreText.text = "Alive for "+timeAlive.ToString();
             }
         }
     }
